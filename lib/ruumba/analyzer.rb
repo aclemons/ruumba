@@ -6,6 +6,7 @@ require 'tmpdir'
 require 'open3'
 require 'English'
 
+require 'ruumba/erubi_parser'
 require 'ruumba/iterators'
 require 'ruumba/parser'
 require 'ruumba/rubocop_runner'
@@ -75,7 +76,7 @@ module Ruumba
     end
 
     def parser
-      @parser ||= Parser.new
+      @parser ||= ErubiParser.new
     end
 
     def copy_erb_file(file, contents)

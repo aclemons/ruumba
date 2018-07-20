@@ -12,4 +12,5 @@ group :development, :test do
   gem 'rubocop'
   gem 'simplecov',   require: false
   gem 'yard',        '~> 0.9.11'
+  gem 'erubi'
 end
