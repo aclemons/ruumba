@@ -5,6 +5,7 @@ ruby '~> 2.3'
 gemspec
 
 group :development, :test do
+  gem 'erubi'
   gem 'guard',       '~> 2.11.1'
   gem 'guard-rspec', '~> 4.5.0'
   gem 'rake',        '~> 10.4.2'
@@ -12,5 +13,4 @@ group :development, :test do
   gem 'rubocop'
   gem 'simplecov',   require: false
   gem 'yard',        '~> 0.9.11'
-  gem 'erubi'
 end

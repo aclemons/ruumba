@@ -6,7 +6,6 @@ require 'tmpdir'
 require 'open3'
 require 'English'
 
-require 'ruumba/erubi_parser'
 require 'ruumba/iterators'
 require 'ruumba/parser'
 require 'ruumba/rubocop_runner'
@@ -76,7 +75,16 @@ module Ruumba
     end
 
     def parser
-      @parser ||= ErubiParser.new
+      case options[:parser]
+      when 'erubi'
+        require 'ruumba/erubi_parser'
+        @parser ||= ErubiParser.new
+      when 'regex', nil
+        require 'ruumba/regex_parser'
+        @parser ||= RegexParser.new
+      else
+        raise "Unknown parser #{options[:parser]}"
+      end
     end
 
     def copy_erb_file(file, contents)

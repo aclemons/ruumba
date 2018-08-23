@@ -96,6 +96,10 @@ opts_parser = OptionParser.new do |opts|
   opts.on('-L', '--list-target-files', 'List all files Ruumba will inspect.') do
     options[:arguments] << '--list-target-files'
   end
+
+  opts.on('--parser [PARSER]', 'The parser to use to extract ruby code from erubies. Can be either regex or erubi. Default to regex.') do |parser|
+    options[:parser] = parser
+  end
 end
 
 begin
