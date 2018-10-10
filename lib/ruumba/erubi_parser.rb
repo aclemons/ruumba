@@ -2,6 +2,8 @@
 
 # @author Andrew Clemons <andrew.clemons@gmail.com>
 
+require 'erubi'
+
 module Ruumba
   # Extracted from rails
   class RuumbaErubi < ::Erubi::Engine
@@ -52,7 +54,7 @@ module Ruumba
         src << "@output_buffer.append="
       end
 
-      if BLOCK_EXPR.match?(code)
+      if BLOCK_EXPR.match(code)
         src << " " << code
       else
         src << "(" << code << ");"
